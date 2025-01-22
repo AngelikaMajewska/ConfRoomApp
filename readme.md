@@ -186,20 +186,24 @@ manage.py
 
 ### Homepage
 
-![img.png](img.png)
+![img](https://github.com/user-attachments/assets/743a0e11-e03a-43b7-b766-ce0d869d3270)
+
 
 ### Search page
 
-![img_1.png](img_1.png)
+![img_1](https://github.com/user-attachments/assets/fedd1b82-c0f5-476f-96cf-0739f5220bbe)
+
 
 ### Room details
 
-![img_2.png](img_2.png)
+![img_2](https://github.com/user-attachments/assets/40f9ef3c-cdd3-4055-88aa-1f748df1e9ed)
+
 
 ### Booking view
 
-![img_3.png](img_3.png)
+![img_3](https://github.com/user-attachments/assets/f03e8730-ceaa-4d9c-9d05-b4ea583cbe95)
+
 
 ### Django REST framework view
 
-![img_4.png](img_4.png)
+![img_4](https://github.com/user-attachments/assets/d5fff6fb-21b1-48ee-8b0a-a86ad3d95523)
