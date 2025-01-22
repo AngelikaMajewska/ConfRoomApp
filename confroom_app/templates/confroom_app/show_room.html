@@ -1,0 +1,59 @@
+{% extends 'confroom_app/base.html' %}
+{% block title %}Conference room details {% endblock %}
+
+{% block content %}
+    <div class="room-details">
+        <div class="room-details-header">
+            <h2>Conference room: {{room.name}}</h2>
+            <div class="room-details-links">
+                <a href="{% url 'modify-room' room.id %}" class="room-details-page">Modify</a>
+                <a href="{% url 'delete-room' room.id %}" class="room-details-page">Delete</a>
+                <a href="{% url 'book-room' room.id %}" class="room-details-page">Book</a>
+            </div>
+        </div>
+<!--        <h2>Conference room: {{room.name}}</h2>-->
+<!--        <ul>-->
+<!--          <li>ID: {{room.id}}</li>-->
+<!--          <li>Capacity: {{room.capacity}}</li>-->
+<!--          <li>Has projector: {{room.has_projector}}</li>-->
+<!--        </ul>-->
+        <table class="room-detail-table">
+            <tr>
+                <th>ID</th>
+                <td>{{room.id}}</td>
+                <th>Capacity</th>
+                <td>{{room.capacity}}</td>
+                <th>Projector</th>
+                <td>{{room.has_projector}}</td>
+            </tr>
+<!--            <tr style="text-align: center;" >-->
+<!--                <td colspan="2">-->
+<!--                    <a href="{% url 'modify-room' room.id %}" class="room-details-page">Modify</a>-->
+<!--                    <a href="{% url 'delete-room' room.id %}" class="room-details-page">Delete</a>-->
+<!--                    <a href="{% url 'book-room' room.id %}" class="room-details-page">Book</a>-->
+<!--                </td>-->
+<!--            </tr>-->
+        </table>
+        <h2>Current bookings</h2>
+        {% if data_available is not none %}
+            <table class="room-booking-detail-table">
+                <thead>
+                    <tr>
+                      <th style="width:30%;">Date</th>
+                      <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                        <tr>
+                              <td class="booking-date" style="width:30%;">{{booking.date}}</td>
+                              <td class="booking-comment">{{booking.comment}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-bookings-feedback">No booking found for this conference room.</p>
+        {% endif %}
+    </div>
+{% endblock %}
