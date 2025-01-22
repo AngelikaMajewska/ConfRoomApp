@@ -1,0 +1,46 @@
+{% extends 'confroom_app/base.html' %}
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+    <div class="search-room-form-container">
+        <h2>Detail search</h2>
+        <form method="post" class="search-room-form">
+          {% csrf_token %}
+            <label>Name: <input name="name" type="text" value="{{name}}"></label>
+            <label>Capacity: <input type="number" min="0" step="1" name="capacity" value="{{capacity}}"></label>
+            <label>Has projector: <input type="checkbox" name="has_projector" {% if projector is not none %}checked{% endif %}></label>
+            <button>Search</button>
+        </form>
+    </div>
+    <div>
+        {% if result is not none %}
+            <table class="all-rooms-table">
+                <thead>
+                    <tr>
+                        <th style="font-weight: bold">#</th>
+                        <th>Name</th>
+                        <th>Capacity</th>
+                        <th>Projector</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in all_rooms %}
+                        <tr>
+                            <td style="font-weight: bold">{{room.id}}</td>
+                            <td class="all-rooms-table-options"><a href="{% url 'show-room' room.id %}">{{room.name}}</a></td>
+                            <td>{{room.capacity}}</td>
+                            {% if room.has_projector %} <td style="color: green;font-size: 20px;">&#x2713;</td>
+                            {% else %}<td style="color:red; font-size: 20px"> &#x2717;</td>{% endif %}
+                            <td class="all-rooms-table-options">
+                                <a href="{% url 'book-room' room.id %}">Book</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+              <p class="no-room-feedback">No conference rooms with those parameters.</p>
+        {% endif %}
+    </div>
+{% endblock %}

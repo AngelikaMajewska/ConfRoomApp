@@ -1,0 +1,18 @@
+{% extends 'confroom_app/base.html' %}
+{% block title %}Add conference room {% endblock %}
+
+{% block content %}
+    <div class="add-room-form-container">
+        <h2>Add room</h2>
+        <form method="post" class="add-room-form">
+          {% csrf_token %}
+            <label>Name: <input name="name" type="text" value="{{name}}"></label>
+            <label>Capacity: <input type="number" min="0" step="1" name="capacity" value="{{capacity}}"></label>
+            <label>Has projector: <input type="checkbox" name="has_projector" {% if projector %}checked{% endif %}></label>
+            <button>Add</button>
+        </form>
+    </div>
+    <div>
+        <p class="add-room-response">{{response}}</p>
+    </div>
+{% endblock %}
