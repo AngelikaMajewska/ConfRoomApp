@@ -17,10 +17,9 @@ This Django project is a conference room management application that allows user
 
 ## Table of Contents
 1. [Setup](#setup)
-2. [Project Structure](#project-structure)
-3. [Key Functionality](#key-functionality)
-4. [API Endpoints](#api-endpoints)
-5. [Screenshots](#screenshots)
+2. [Key Functionality](#key-functionality)
+3. [API Endpoints](#api-endpoints)
+4. [Screenshots](#screenshots)
 
 
 
@@ -32,76 +31,6 @@ This Django project is a conference room management application that allows user
 - Django 4.2+
 - Django REST Framework
 
-## Project structure
-
-The project structure for this Django application is organized as follows:
-```
-confroom_app/
-├── migrations/
-│   ├── init.py
-├── templates/
-│   ├── confroom_app/
-│   │   ├── add_room.html
-│   │   ├── booking.html
-│   │   ├── homepage.html
-│   │   ├── modify_room.html
-│   │   ├── search.html
-│   │   ├── show_room.html
-├── init.py
-├── admin.py
-├── apps.py
-├── models.py
-├── tests.py
-├── views.py
-api/
-├── init.py
-├── urls.py
-├── views.py
-confroom_project/
-├── init.py
-├── settings.py
-├── urls.py
-├── wsgi.py
-static/
-├── css/
-│   ├── styles.css
-├── js/
-│   ├── script.js
-db.sqlite3
-manage.py
-```
-### Description of Directories and Files:
-
-- **`confroom_app/`**:  
-  This is the main app where the core business logic for managing conference rooms and bookings resides. It contains:
-  - **`migrations/`**: Contains the database migration files.
-  - **`templates/`**: Contains HTML files for rendering views.
-  - **`models.py`**: Defines the database models for `Room` and `Booking`.
-  - **`views.py`**: Contains class-based views that implement functionality like adding, modifying, and booking rooms.
-  - **`admin.py`**: Registers models to appear in Django's admin interface.
-  - **`tests.py`**: Placeholder for unit tests related to the app's functionality.
-
-- **`api/`**:  
-  This folder contains the REST API views and URLs for accessing room and booking data in a programmatic way.
-  - **`urls.py`**: Defines URL patterns for the API endpoints.
-  - **`views.py`**: Contains the views for the API, handling data retrieval and response formatting.
-
-- **`confroom_project/`**:  
-  This is the root directory for the Django project that contains settings and project-wide configurations.
-  - **`settings.py`**: Contains the Django project settings (database configurations, static files, etc.).
-  - **`urls.py`**: Defines URL patterns for the overall application, including the `confroom_app` and `api` URLs.
-  - **`wsgi.py`**: The WSGI entry point for the application when deploying.
-  - **`__init__.py`**: Marks the directory as a Python package.
-
-- **`static/`**:  
-  This folder contains static files such as CSS and JavaScript used in the front end.
-  - **`css/`**: Contains CSS files for styling the app.
-
-- **`db.sqlite3`**:  
-  The SQLite database where the data for rooms and bookings is stored.
-
-- **`manage.py`**:  
-  The command-line tool that allows you to interact with the Django project (e.g., running the server, applying migrations).
 
 ## Key Functionality
 
